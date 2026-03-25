@@ -10,31 +10,53 @@
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family: 'Public Sans', sans-serif; line-height:1.7; color:#333; }
 
-        /* Transparent Header - UNCHANGED */
-        header {
-            position:relative;
+        /* Transparent Header with Hamburger */
+        .header {
+            position: relative;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            transition: all 0.4s ease;
+          
+           
         }
         .nav-container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 90px;
+            height: 80px;
         }
-        .logo { font-family: 'DM Sans', sans-serif; font-size: 2.3rem; font-weight: 700; color: white; text-decoration: none; }
-        .tagline { font-size: 0.8rem; font-weight: 500; letter-spacing: 2px; color: #1dbf73; margin-top: -6px; }
-        nav ul { display: flex; list-style: none; gap: 40px; }
-        nav a { color: white; text-decoration: none; font-weight: 500; font-size: 1.05rem; }
-        nav a:hover { color: #1dbf73; }
+        .logo {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
 
-        /* Hero - UNCHANGED */
+        /* Hamburger Icon */
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero */
         .hero {
             height: 50vh;
             min-height: 400px;
@@ -44,35 +66,10 @@
             align-items: center;
             color: white;
             text-align: center;
-            margin-top: -90px;
+            margin-top: -80px;
         }
 
-        /* Footer - UNCHANGED */
-        footer {
-            background: #0d0c0a;
-            color: #aaa;
-            padding: 100px 20px 40px;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 60px;
-        }
-        .footer-logo {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 20px;
-        }
-        .social-links a {
-            color: #fff;
-            font-size: 1.5rem;
-            margin-right: 15px;
-        }
-
-        /* Side-by-Side Layout */
+        /* Side-by-Side Sections */
         .side-section {
             padding: 100px 20px;
         }
@@ -82,7 +79,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
-            align-items: stretch;           /* Makes both sides same height */
+            align-items: stretch;
         }
         .side-content img {
             width: 100%;
@@ -91,7 +88,6 @@
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-
         .side-text h2 {
             font-family: 'DM Sans', sans-serif;
             font-size: 2.6rem;
@@ -103,46 +99,112 @@
             margin-bottom: 20px;
         }
 
-        /* Core Values - Now matches image height */
+        /* Core Values Grid */
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            height: 80%;                    /* Matches image height */
+            gap: 10px;
+            height: 80%;
         }
         .value-card {
             background: white;
-            padding: 20px 10px;
-            border-radius: 16px;
+            padding: 35px 25px;
+            border-radius: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             text-align: center;
-            height: 80%;                    /* Equal height */
+            height: 80%;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0c0a;
+            color: #aaa;
+            padding: 80px 20px 40px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 50px;
+            text-align: center;
+        }
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        /* ===================== MOBILE RESPONSIVE ===================== */
+        @media (max-width: 768px) {
+            .nav-container { 
+                height: 70px; 
+                padding: 0 15px; 
+            }
+            .logo { font-size: 1.8rem; }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 26, 36, 0.98);
+                flex-direction: column;
+                padding: 30px 0;
+                gap: 20px;
+                display: none;
+                text-align: center;
+            }
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero { 
+                margin-top: -70px; 
+                min-height: 520px; 
+            }
+
+            .side-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .side-section {
+                padding: 70px 15px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Transparent Header - UNCHANGED -->
+    <!-- Transparent Header with Hamburger -->
     <header>
         <div class="nav-container">
             <div>
                 <a href="/" class="logo">strategysis</a>
             </div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="/about.html">About Us</a></li>
                     <li><a href="/services.html">Services</a></li>
                     <li><a href="/contact.html">Contact Us</a></li>
                 </ul>
             </nav>
+            <div class="mobile-menu" onclick="toggleMenu()">☰</div>
         </div>
     </header>
 
-    <!-- Hero - UNCHANGED -->
+    <!-- Hero -->
     <section class="hero">
         <div style="max-width:800px; margin:0 auto;">
             <h1 style="font-size:3.5rem;">About Us</h1>
@@ -166,7 +228,7 @@
     <!-- Side-by-Side: Vision & Mission -->
     <section class="side-section" style="background:#f9f9f9;">
         <div class="side-content">
-            
+           
             <div class="side-text">
                 <h2>Our Vision</h2>
                 <p>To be Africa’s leading woman-led advisory firm empowering institutions to excel through strategy, innovation, and responsible leadership.</p>
@@ -174,13 +236,13 @@
                 <h2 style="margin-top:50px;">Our Mission</h2>
                 <p>To provide evidence-based advisory and consulting services that enable our clients to make better decisions, deliver measurable results, and achieve long-term organizational success.</p>
             </div>
-            <div>
+             <div>
                 <img src="https://wordpress-s4bn.onrender.com/wp-content/themes/nas-consulting-lite/assets/images/about_image.png" alt="Vision">
             </div>
         </div>
     </section>
 
-    <!-- Side-by-Side: Core Values (Height matched to picture) -->
+    <!-- Side-by-Side: Core Values -->
     <section class="side-section">
         <div class="side-content">
             <div>
@@ -209,41 +271,35 @@
     <!-- Side-by-Side: Differentiators -->
     <section class="side-section" style="background:#f9f9f9;">
         <div class="side-content">
-           
+            
             <div class="side-text">
                 <h2>Our Differentiators</h2>
-                <ul style="font-size:1rem; line-height:2.1;">
+                <ul style="font-size:1.05rem; line-height:2.1;">
                     <li><strong></strong> A woman-owned, woman-led firm bringing diversity, empathy, and innovation into the consulting ecosystem.</li>
                     <li><strong></strong> An in-depth understanding of Nigeria’s public sector, non-profit environment, and private sector realities.</li>
                     <li><strong></strong> A diverse, highly experienced Board of Advisors, deftly blending global best practice with local insight.</li>
                     <li><strong></strong> Strong network of subject-matter experts and strategic partners.</li>
                 </ul>
             </div>
-             <div>
+            <div>
                 <img src="https://wordpress-s4bn.onrender.com/wp-content/themes/nas-consulting-lite/assets/images/about_image.png" alt="Differentiators">
             </div>
         </div>
     </section>
 
-    <!-- FOOTER - UNCHANGED -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div>
                 <div class="footer-logo">strategysis</div>
                 <p>Woman-Owned.<br>Woman-Led.<br>Insight-Driven.<br>Solution-Focused.</p>
-                
-                <div class="social-links" style="margin-top:40px;">
-                    <a href="#">📸</a>
-                    <a href="#">𝕏</a>
-                    <a href="#">in</a>
-                </div>
             </div>
             
             <div>
                 <h4 style="color:white; margin-bottom:20px;">Company</h4>
                 <ul style="list-style:none; line-height:2.2;">
-                    <li><a href="#" style="color:#aaa; text-decoration:none;">About Us</a></li>
-                    <li><a href="#" style="color:#aaa; text-decoration:none;">Privacy Policy</a></li>
+                    <li><a href="/about.html" style="color:#aaa; text-decoration:none;">About Us</a></li>
+                    <li><a href="/services.html" style="color:#aaa; text-decoration:none;">Services</a></li>
                 </ul>
             </div>
             
@@ -255,17 +311,24 @@
                     <a href="mailto:info@strategysis.com" style="color:#1dbf73;">info@strategysis.com</a>
                 </p>
                 
-                <p style="margin-top:40px;">
+                <p style="margin-top:30px;">
                     <strong>Office Hours</strong><br>
                     Monday – Friday: 8:00 a.m. – 5:00 p.m.
                 </p>
             </div>
         </div>
         
-        <div style="text-align:center; margin-top:100px; padding-top:30px; border-top:1px solid #333; font-size:0.95rem;">
-            © 2026 Strategysis. Proudly woman-owned and led in Nigeria.
+        <div style="text-align:center; margin-top:80px; padding-top:30px; border-top:1px solid #333; font-size:0.9rem;">
+            © 2026 StrategySis Advisory Services Ltd. | Proudly Woman-Owned and Woman-Led in Nigeria
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>

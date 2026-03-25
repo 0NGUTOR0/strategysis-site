@@ -7,67 +7,58 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap');
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Public Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Public Sans', sans-serif; line-height:1.6; color:#333; background:#fff; }
 
-        /* Transparent Header */
+        /* Transparent Header with Hamburger */
         header {
-            position:relative;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            transition: all 0.4s ease;
+            
         }
         .nav-container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 90px;
+            height: 80px;
         }
         .logo {
             font-family: 'DM Sans', sans-serif;
-            font-size: 2.3rem;
+            font-size: 2.1rem;
             font-weight: 700;
             color: white;
             text-decoration: none;
         }
-        .tagline {
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            color: #1dbf73;
-            margin-top: -6px;
-        }
         nav ul {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 30px;
         }
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
             font-size: 1.05rem;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #1dbf73;
         }
 
-        /* Hero Section - Adjusted for fixed header */
+        /* Hamburger */
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero */
         .hero {
-            position: relative;
             height: 100vh;
-            min-height: 700px;
+            min-height: 600px;
             background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
                         url('https://wordpress-s4bn.onrender.com/wp-content/uploads/2026/03/johannesburg-city-panorama-sunflare-with-the-tower-6464744-1024x683.avif') center/cover no-repeat;
             display: flex;
@@ -75,98 +66,45 @@
             justify-content: center;
             color: white;
             text-align: center;
-            margin-top: -90px; /* Compensate for fixed header */
+            margin-top: -80px;
         }
-        
         .hero-content {
-            max-width: 1200px;
+            max-width: 1000px;
             padding: 0 20px;
-            z-index: 2;
         }
-        
-        .hero h1 {
-            font-size: clamp(2.8rem, 8vw, 5.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
+        .hero h2 {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            margin-bottom: 15px;
         }
-        
         .hero p {
-            font-size: 1.35rem;
-            max-width: 720px;
-            margin: 0 auto 40px;
-            opacity: 0.95;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
-        
         .cta-button {
             display: inline-block;
             background: #1dbf73;
             color: white;
-            padding: 18px 48px;
+            padding: 16px 40px;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: #13544e;
-            transform: translateY(-3px);
         }
 
-        /* Rest of your original styles */
-        .services {
-            padding: 50px 20px;
-            background: #0f1a24;
-            color: white;
-        }
-        
+        /* Sections */
+        section { padding: 80px 20px; }
+        .services { background: #0f1a24; color: white; }
+        .about { background: #f9f9f9; }
+        .team { background: #0f1a24; color: white; }
+
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            font-weight: 600;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
         }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-        
-        .service-card {
-            background: #121c27;
-            padding: 50px 40px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.4s;
-            min-height: 420px;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-12px);
-        }
-        
-        .service-card h3 {
-            font-size: 1.65rem;
-            margin: 30px 0 20px;
-            color: #f0f0f0;
-        }
-        
-        .service-card p {
-            color: #b0b8c0;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-        
-        .about {
-            padding: 120px 20px;
-            background: #f9f9f9;
-        }
-        
+
+        /* About Section - Centered */
         .about-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -175,103 +113,134 @@
             gap: 80px;
             align-items: center;
         }
-        
         .about img {
             width: 100%;
             border-radius: 12px;
         }
-        
+        .about-text {
+            text-align: center;
+        }
         .about-text h2 {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 30px;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
         }
-        
-        .team {
-            padding: 120px 20px;
-            background: #0f1a24;
-            color: white;
-        }
-        
+
+        /* Team Section - Centered */
         .team-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            max-width: 1200px;
-            margin: 80px auto 0;
+            justify-items: center;
         }
-        
         .team-member {
             text-align: center;
+            max-width: 280px;
         }
-        
         .team-member img {
             width: 160px;
             height: 160px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #1dbf73;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
-        
-        .team-member h4 {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
+
         /* Footer */
         footer {
             background: #0d0c0a;
             color: #aaa;
-            padding: 100px 20px 40px;
+            padding: 80px 20px 40px;
         }
-        
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 50px;
+            text-align: center;
         }
-        
         .footer-logo {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-        
-        .social-links a {
-            color: #fff;
-            font-size: 1.5rem;
-            margin-right: 15px;
+
+        /* ===================== MOBILE RESPONSIVE ===================== */
+        @media (max-width: 768px) {
+            .nav-container { 
+                height: 70px; 
+                padding: 0 15px; 
+            }
+            .logo { font-size: 1.8rem; }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 26, 36, 0.98);
+                flex-direction: column;
+                padding: 30px 0;
+                gap: 20px;
+                display: none;
+                text-align: center;
+            }
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero { margin-top: -70px; min-height: 520px; }
+
+            .about-content, .services-grid, .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text, .team-member {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Transparent Header -->
+    <!-- Transparent Header with Hamburger -->
     <header>
         <div class="nav-container">
             <div>
                 <a href="/" class="logo">strategysis</a>
-                
             </div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="/">Home</a></li>
                     <li><a href="/about.html">About Us</a></li>
                     <li><a href="/services.html">Services</a></li>
                     <li><a href="/contact.html">Contact Us</a></li>
                 </ul>
             </nav>
+            <div class="mobile-menu" onclick="toggleMenu()">☰</div>
         </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-           <h2>Woman-Owned. Woman-Led.<br> Insight-Driven. Solution-Focused</h2>
+            <h2>Woman-Owned. Woman-Led.<br> Insight-Driven. Solution-Focused</h2>
             <p>We partner with visionary leaders to transform ambitions into sustainable success across the continent.</p>
             <a href="/services.html" class="cta-button">Discover Our Services</a>
         </div>
@@ -280,27 +249,21 @@
     <!-- SERVICES -->
     <section class="services">
         <h2 class="section-title">How We Can Help You Grow</h2>
-        
         <div class="services-grid">
             <div class="service-card">
                 <h3>Business Advisory &amp; Management Consulting</h3>
                 <p>Strategy development, organizational design, operational efficiency, change management, business transformation, and performance improvement.</p>
             </div>
-            
             <div class="service-card">
                 <h3>ESG, Sustainability &amp; Responsible Business</h3>
                 <p>Development &amp; assessment of Environment, Social &amp; Governance strategies, sustainability integration, reporting, and governance strengthening.</p>
             </div>
-            
             <div class="service-card">
                 <h3>Human Capital &amp; Organizational Development</h3>
                 <p>HR advisory, competency development, workforce planning, leadership development, and learning programs.</p>
             </div>
-            
-            
         </div>
-        
-        <div style="text-align:center; margin-top:70px;">
+        <div style="text-align:center; margin-top:50px;">
             <a href="/services.html" style="color:#1dbf73; font-weight:600; text-decoration:none; font-size:1.1rem;">Explore All Services →</a>
         </div>
     </section>
@@ -315,7 +278,7 @@
                 <h2>From local enterprises to international presence</h2>
                 <p>We help ambitious African businesses scale with confidence — combining deep local insight with global best practices.</p>
                 <p style="margin-top:25px;">Our woman-owned and woman-led team brings fresh perspectives, rigorous analysis, and practical solutions that deliver measurable results.</p>
-                <a href="/about.html" style="margin-top:40px; display:inline-block; background:#13544e; color:white; padding:16px 40px; border-radius:8px; text-decoration:none;">Learn More About Us</a>
+                <a href="/about.html" style="margin-top:40px; display:inline-block; background:#13544e; color:white; padding:16px 40px; border-radius:8px; text-decoration:none; margin: 0 auto;">Learn More About Us</a>
             </div>
         </div>
     </section>
@@ -333,7 +296,6 @@
                 <h4>Mrs. Ozavize Winful, mni</h4>
                 <p>Managing Director</p>
             </div>
-            
             <div class="team-member">
                 <img src="https://wordpress-s4bn.onrender.com/wp-content/uploads/2026/03/SASD.jpg" alt="Mrs. Opeola Abegunde">
                 <h4>Mrs. Opeola Abegunde</h4>
@@ -348,19 +310,13 @@
             <div>
                 <div class="footer-logo">strategysis</div>
                 <p>Woman-Owned.<br>Woman-Led.<br>Insight-Driven.<br>Solution-Focused.</p>
-                
-                <div class="social-links" style="margin-top:40px;">
-                    <a href="#">📸</a>
-                    <a href="#">𝕏</a>
-                    <a href="#">in</a>
-                </div>
             </div>
             
             <div>
                 <h4 style="color:white; margin-bottom:20px;">Company</h4>
                 <ul style="list-style:none; line-height:2.2;">
-                    <li><a href="#" style="color:#aaa; text-decoration:none;">About Us</a></li>
-                    <li><a href="#" style="color:#aaa; text-decoration:none;">Privacy Policy</a></li>
+                    <li><a href="/about.html" style="color:#aaa; text-decoration:none;">About Us</a></li>
+                    <li><a href="/services.html" style="color:#aaa; text-decoration:none;">Services</a></li>
                 </ul>
             </div>
             
@@ -379,10 +335,17 @@
             </div>
         </div>
         
-        <div style="text-align:center; margin-top:100px; padding-top:30px; border-top:1px solid #333; font-size:0.95rem;">
+        <div style="text-align:center; margin-top:80px; padding-top:30px; border-top:1px solid #333; font-size:0.9rem;">
             © 2026 Strategysis. Proudly woman-owned and led in Nigeria.
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
