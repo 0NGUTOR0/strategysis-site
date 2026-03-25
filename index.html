@@ -221,7 +221,7 @@
 <body>
 
     <!-- Transparent Header with Hamburger -->
-    <header>
+       <header>
         <div class="nav-container">
             <div>
                 <a href="/" class="logo">strategysis</a>
@@ -234,7 +234,7 @@
                     <li><a href="/contact.html">Contact Us</a></li>
                 </ul>
             </nav>
-            <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+            <div class="mobile-menu" id="hamburger">☰</div>
         </div>
     </header>
 
@@ -346,6 +346,26 @@
             const menu = document.getElementById('nav-menu');
             menu.classList.toggle('active');
         }
+    </script>
+     <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        // Toggle menu when hamburger is clicked
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();           // Prevent click from bubbling to document
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking anywhere outside
+        document.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+        });
+
+        // Prevent menu from closing when clicking inside the menu itself
+        navMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
     </script>
 
 </body>

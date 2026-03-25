@@ -257,6 +257,25 @@
             menu.classList.toggle('active');
         }
     </script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
 
+        // Toggle menu when hamburger is clicked
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();           // Prevent click from bubbling to document
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking anywhere outside
+        document.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+        });
+
+        // Prevent menu from closing when clicking inside the menu itself
+        navMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    </script>
 </body>
 </html>
