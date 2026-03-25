@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | strategysis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap');
+        
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Public Sans', sans-serif; line-height:1.7; color:#333; }
+
+        /* Transparent Header - SAME AS YOUR ABOUT PAGE */
+        header {
+            position:relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+        .logo { font-family: 'DM Sans', sans-serif; font-size: 2.3rem; font-weight: 700; color: white; text-decoration: none; }
+        .tagline { font-size: 0.8rem; font-weight: 500; letter-spacing: 2px; color: #1dbf73; margin-top: -6px; }
+        nav ul { display: flex; list-style: none; gap: 40px; }
+        nav a { color: white; text-decoration: none; font-weight: 500; font-size: 1.05rem; }
+        nav a:hover { color: #1dbf73; }
+
+        /* Hero - SAME AS YOUR ABOUT PAGE */
+        .hero {
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://wordpress-s4bn.onrender.com/wp-content/uploads/2026/03/johannesburg-city-panorama-sunflare-with-the-tower-6464744-1024x683.avif') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: -90px;
+        }
+
+        /* Footer - SAME AS YOUR ABOUT PAGE */
+        footer {
+            background: #0d0c0a;
+            color: #aaa;
+            padding: 100px 20px 40px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+        }
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        /* Side-by-Side Intro Section */
+        .side-section {
+            padding: 100px 20px;
+        }
+        .side-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .side-content img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .side-text h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2.6rem;
+            margin-bottom: 30px;
+            color: #0f1a24;
+        }
+
+        /* 3x3 Services Grid */
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 80px 20px;
+        }
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+        .service-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.35rem;
+            margin: 20px 0 15px;
+            color: #0f1a24;
+        }
+        .service-card p {
+            color: #555;
+            font-size: 1.02rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 992px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Transparent Header - UNCHANGED -->
+    <header>
+        <div class="nav-container">
+            <div>
+                <a href="/" class="logo">strategysis</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/test.html">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/services.html">Services</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero - UNCHANGED -->
+    <section class="hero">
+        <div style="max-width:800px; margin:0 auto;">
+            <h1 style="font-size:3.5rem;">Our Services</h1>
+        </div>
+    </section>
+
+    <!-- Side-by-Side Intro -->
+    <section class="side-section">
+        <div class="side-content">
+            <div>
+                <img src="https://wordpress-s4bn.onrender.com/wp-content/themes/nas-consulting-lite/assets/images/about_image.png" alt="Services">
+            </div>
+            <div class="side-text">
+                <h2>Comprehensive Advisory Solutions</h2>
+                <p>We deliver strategic insight, operational excellence, and transformative solutions tailored to the unique needs of public, private, and social sector organizations across Nigeria and Africa.</p>
+                <p>Our nine core service areas are designed to help institutions navigate complexity, strengthen performance, and achieve sustainable impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3x3 Services Grid -->
+    <section style="background:#f9f9f9;">
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Business Advisory &amp; Management Consulting</h3>
+                <p>Strategy development, organizational design, operational efficiency, change management, business transformation, and performance improvement.</p>
+            </div>
+            <div class="service-card">
+                <h3>ESG, Sustainability &amp; Responsible Business Advisory</h3>
+                <p>Development &amp; assessment of Environment, Social &amp; Governance strategies, sustainability integration, reporting, and governance strengthening.</p>
+            </div>
+            <div class="service-card">
+                <h3>Human Capital &amp; Organizational Development</h3>
+                <p>HR advisory covering competency development, workforce planning, leadership development, and learning programs.</p>
+            </div>
+            <div class="service-card">
+                <h3>Public Affairs &amp; Policy Advisory</h3>
+                <p>Government relations, stakeholder mapping &amp; engagement, policy analysis, and advocacy strategy development.</p>
+            </div>
+            <div class="service-card">
+                <h3>Project &amp; Programme Management Advisory</h3>
+                <p>Project design, monitoring and evaluation, risk management, and delivery optimization.</p>
+            </div>
+            <div class="service-card">
+                <h3>Research, Data &amp; Insights</h3>
+                <p>Market intelligence, surveys, sector analysis, impact assessments, and evidence generation for decision-making.</p>
+            </div>
+            <div class="service-card">
+                <h3>Capacity Building, Corporate Events &amp; Training</h3>
+                <p>Conferences, webinars, leadership programs, workshops, mentoring, coaching, and learning platforms.</p>
+            </div>
+            <div class="service-card">
+                <h3>Business Support Services</h3>
+                <p>Bookkeeping &amp; accounting, facility management, logistics, document management, and janitorial services.</p>
+            </div>
+            <div class="service-card">
+                <h3>Security Assessments and Reporting</h3>
+                <p>Pre and post assessments, development of security strategy and reporting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER - UNCHANGED -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">strategysis</div>
+                <p>Woman-Owned.<br>Woman-Led.<br>Insight-Driven.<br>Solution-Focused.</p>
+                
+                <div class="social-links" style="margin-top:40px;">
+                    <a href="#">📸</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">in</a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 style="color:white; margin-bottom:20px;">Company</h4>
+                <ul style="list-style:none; line-height:2.2;">
+                    <li><a href="#" style="color:#aaa; text-decoration:none;">About Us</a></li>
+                    <li><a href="#" style="color:#aaa; text-decoration:none;">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 style="color:white; margin-bottom:20px;">Contact Us</h4>
+                <p style="line-height:1.8;">
+                    House 19, Monarch Garden Estate<br>
+                    Life Camp, Abuja FCT<br><br>
+                    <a href="mailto:info@strategysis.com" style="color:#1dbf73;">info@strategysis.com</a>
+                </p>
+                
+                <p style="margin-top:40px;">
+                    <strong>Office Hours</strong><br>
+                    Monday – Friday: 8:00 a.m. – 5:00 p.m.
+                </p>
+            </div>
+        </div>
+        
+        <div style="text-align:center; margin-top:100px; padding-top:30px; border-top:1px solid #333; font-size:0.95rem;">
+            © 2026 Strategysis. Proudly woman-owned and led in Nigeria.
+        </div>
+    </footer>
+
+</body>
+</html>
