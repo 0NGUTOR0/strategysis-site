@@ -13,13 +13,13 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      index: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 5s
       timeout: 5s
       retries: 10
 
   wordpress:
-    image: wordpress:latest
+    image: wordpress:laindex
     container_name: wp_app
     depends_on:
       db:
